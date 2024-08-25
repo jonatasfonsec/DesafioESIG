@@ -47,14 +47,18 @@ Este serviço é responsável por consolidar os salários das pessoas e armazena
 ### Integração entre Bean e Service
 No `ConsolidacaoBean`, o método `consolidarSalarios()` chama o método `consolidarSalarios()` do `ConsolidacaoService`, que realiza todo o processo de consolidação e retorna os resultados. Esses resultados então são armazenados na lista `resultados` do `ConsolidacaoBean`, que pode ser acessada na camada de visualização (JSF).
 
+### Outros arquivos
+O `persistence.xml` configura a unidade de persistência, especificando o provedor de persistência, as classes de entidade e as propriedades de conexão e comportamento do Hibernate. Ele é fundamental para que o JPA saiba como se conectar ao banco de dados e gerenciar as entidades.
 
-O persistence.xml configura a unidade de persistência, especificando o provedor de persistência, as classes de entidade e as propriedades de conexão e comportamento do Hibernate. Ele é fundamental para que o JPA saiba como se conectar ao banco de dados e gerenciar as entidades.
-O hibernate.cfg.xml configura a conexão com o banco de dados, define o dialeto SQL, ativa as configurações de debug e mapeia as entidades que o Hibernate deve gerenciar. Ele é essencial para que o Hibernate saiba como se conectar ao banco de dados e como mapear as entidades para as tabelas do banco.
-O faces-config.xml configura o bean gerenciado ConsolidacaoBean para ser utilizado na aplicação JSF. Ele especifica o nome do bean, a classe correspondente e o escopo de visualização. Isso permite que o bean seja acessado e utilizado nas páginas JSF para interagir com a lógica de negócios e a camada de serviço.
-O web.xml configura a aplicação web Java, definindo parâmetros de contexto, mapeamentos de servlets e outras configurações essenciais. Nesse caso, ele configura o servlet JSF (Faces Servlet) para tratar todas as requisições para arquivos .xhtml e define o estágio do projeto como Development.
-O arquivo consolidacao.xthml representa a página JSF permite que o usuário calcule ou recalcule os salários consolidados ao clicar no botão. Os resultados são exibidos em uma tabela, mostrando o ID da pessoa, o nome da pessoa, o nome do cargo e o salário formatado como moeda brasileira.
+O `hibernate.cfg.xml` configura a conexão com o banco de dados, define o dialeto SQL, ativa as configurações de debug e mapeia as entidades que o Hibernate deve gerenciar. Ele é essencial para que o Hibernate saiba como se conectar ao banco de dados e como mapear as entidades para as tabelas do banco.
 
-Instruções de execução:
+O `faces-config.xml` configura o bean gerenciado ConsolidacaoBean para ser utilizado na aplicação JSF. Ele especifica o nome do bean, a classe correspondente e o escopo de visualização. Isso permite que o bean seja acessado e utilizado nas páginas JSF para interagir com a lógica de negócios e a camada de serviço.
+
+O `web.xml` configura a aplicação web Java, definindo parâmetros de contexto, mapeamentos de servlets e outras configurações essenciais. Nesse caso, ele configura o servlet JSF (Faces Servlet) para tratar todas as requisições para arquivos .xhtml e define o estágio do projeto como Development.
+
+O `consolidacao.xthml` representa a página JSF permite que o usuário calcule ou recalcule os salários consolidados ao clicar no botão. Os resultados são exibidos em uma tabela, mostrando o ID da pessoa, o nome da pessoa, o nome do cargo e o salário formatado como moeda brasileira.
+
+### Instruções de execução:
 
 Importar o projeto no Eclipse através do git, e exportar em formato .war.
 Feito isso basta realizar o deploy do arquivo em um servidor web como o Tomcat na pasta webapps.
