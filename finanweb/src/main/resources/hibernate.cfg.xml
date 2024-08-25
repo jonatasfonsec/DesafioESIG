@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+    
+    <hibernate-configuration>
+    <session-factory>
+        <!-- Configurações de Conexão -->
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/finanweb</property>
+        <property name="hibernate.connection.username">postgres</property>
+        <property name="hibernate.connection.password">root</property>
+
+        <!-- Dialeto SQL a ser utilizado pelo Hibernate -->
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+
+        <!-- Configurações de Debug -->
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+
+        <!-- Configuração de Update do Schema -->
+        <property name="hibernate.hbm2ddl.auto">none</property>
+
+        <!-- Mapeamento das Entidades -->
+        <mapping class="com.esig.finanweb.model.Pessoa"/>
+        <mapping class="com.esig.finanweb.model.Cargo"/>
+        <mapping class="com.esig.finanweb.model.Vencimento"/>
+        <mapping class="com.esig.finanweb.model.CargoVencimento"/>
+        <mapping class="com.esig.finanweb.model.PessoaSalarioConsolidado"/>
+
+    </session-factory>
+</hibernate-configuration>
